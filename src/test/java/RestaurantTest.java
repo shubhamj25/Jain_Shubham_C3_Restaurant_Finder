@@ -75,6 +75,15 @@ class RestaurantTest {
         int expectedTotal = 500;
         assertEquals(expectedTotal, restaurant.getTotalOrderValue(order));
     }
-    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    @Test
+    public void should_throw_exception_while_calculating_order_value_if_any_item_does_not_exist_in_menu() {
+        final ArrayList<String> order = new ArrayList<>();
+        order.add("Indian Sizzler");
+        order.add("Potato Bites");
+        assertThrows(itemNotFoundException.class, () ->
+                restaurant.getTotalOrderValue(order)
+        );
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

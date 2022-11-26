@@ -1,6 +1,10 @@
 public class Item {
     private final String name;
 
+    public int getPrice() {
+        return price;
+    }
+
     private final int price;
 
     public Item(String name, int price) {

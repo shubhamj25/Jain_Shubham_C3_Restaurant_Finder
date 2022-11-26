@@ -59,7 +59,11 @@ public class Restaurant {
         return name;
     }
 
-    public int getTotalOrderValue(ArrayList<String> order) {
-        return 0;
+    public int getTotalOrderValue(List<String> orderItems) throws itemNotFoundException {
+        int total = 0;
+        for (String itemName : orderItems) {
+            total += findItemByName(itemName).getPrice();
+        }
+        return total;
     }
 }
