@@ -59,4 +59,7 @@ public class Restaurant {
         return name;
     }
 
+    public int getTotalOrderValue(ArrayList<String> order) {
+        return 0;
+    }
 }

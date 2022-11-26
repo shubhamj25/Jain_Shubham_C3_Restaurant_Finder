@@ -5,6 +5,8 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
@@ -63,4 +65,16 @@ class RestaurantTest {
                 () -> restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>ORDER VALUE<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void should_return_500_as_order_value_for_a_set_of_items_with_price_200_and_300() throws itemNotFoundException {
+        final ArrayList<String> order = new ArrayList<>();
+        order.add("Indian Sizzler");
+        order.add("Mexican lasagne");
+        int expectedTotal = 500;
+        assertEquals(expectedTotal, restaurant.getTotalOrderValue(order));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
